@@ -1,5 +1,5 @@
 // this is used to run on cli
-//java -cp "/Users/rachitagarwal/eclipse-workspace/ChatApp/mysql-connector-j-8.0.33.jar:." com.owner.chatapp.users.view.UserView
+//java -cp "/Users/harshagarwal/eclipse-workspace/ChatApp/mysql-connector-j-8.0.33.jar:." com.owner.chatapp.users.view.UserView
 
 package com.owner.chatapp.users.view;
 
