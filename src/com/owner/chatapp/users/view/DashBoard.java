@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class DashBoard extends JFrame {
 
@@ -60,12 +61,18 @@ public class DashBoard extends JFrame {
 		});
 		chatMenu.add(StartChat);
 		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(5, 5, 791, 500);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setIcon(new ImageIcon(DashBoard.class.getResource("/assets/chit_chat.png")));
-		contentPane.add(lblNewLabel, BorderLayout.CENTER);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Hi.. Welcome to our Chat App");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblNewLabel_1.setBounds(99, 6, 599, 52);
+		contentPane.add(lblNewLabel_1);
 	}
-
 }
