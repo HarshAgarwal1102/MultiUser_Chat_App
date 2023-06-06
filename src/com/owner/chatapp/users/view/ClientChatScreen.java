@@ -1,5 +1,6 @@
 package com.owner.chatapp.users.view;
 
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import com.owner.chatapp.network.Client;
@@ -99,6 +99,7 @@ public class ClientChatScreen extends JFrame {
 		textArea_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		textArea_1.setBounds(30, 303, 518, 39);
 		scrollPane_1.setViewportView(textArea_1);
+		EventQueue.invokeLater( () -> textArea_1.requestFocusInWindow() );
 		
 		setVisible(true);
 	}
