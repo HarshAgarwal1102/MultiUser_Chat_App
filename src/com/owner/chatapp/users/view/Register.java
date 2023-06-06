@@ -52,6 +52,9 @@ public class Register extends JFrame {
 				JOptionPane.showMessageDialog(this, "Registered Successfully");
 				this.setVisible(false);
 				this.dispose();
+				UserView window = new UserView();
+				window.userViewFrame.setVisible(true);
+				
 			}
 			else {
 				JOptionPane.showMessageDialog(this, "Registeration Fail");
@@ -69,6 +72,7 @@ public class Register extends JFrame {
 	}
 	
 	public Register() {
+		setResizable(false);
 		setTitle("Registeration Page");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 360);

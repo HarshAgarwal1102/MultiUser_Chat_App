@@ -1,5 +1,5 @@
 // this is used to run on cli
-//java -cp "/Users/harshagarwal/eclipse-workspace/ChatApp/mysql-connector-j-8.0.33.jar:." com.owner.chatapp.users.view.UserView
+//java -cp "/Users/rachitagarwal/eclipse-workspace/ChatApp/mysql-connector-j-8.0.33.jar:." com.owner.chatapp.users.view.UserView
 
 package com.owner.chatapp.users.view;
 
@@ -27,7 +27,7 @@ import com.owner.chatapp.utils.Userinfo;
 
 public class UserView{
 
-	private JFrame userViewFrame;
+	public JFrame userViewFrame;
 	private JTextField userIdField;
 	private JButton btnLogin;
 	private JPasswordField passwordField;
@@ -129,6 +129,8 @@ public class UserView{
 		btnRegister.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				userViewFrame.setVisible(false);
+				userViewFrame.dispose();
 				Register register = new Register();
 				register.setVisible(true);
 			}
@@ -150,5 +152,7 @@ public class UserView{
 		userViewFrame.getContentPane().add(passwordField);
 		userViewFrame.setBounds(100, 100, 750, 360);
 		userViewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//userViewFrame.setVisible(true);
 	}
 }
