@@ -10,7 +10,6 @@ import java.sql.Statement;
 import com.owner.chatapp.users.dto.UserDTO;
 import com.owner.chatapp.utils.DBConnection;
 import com.owner.chatapp.utils.Encryption;
-import com.owner.chatapp.utils.Userinfo;
 
 public class UserDAO {
 	//login a user

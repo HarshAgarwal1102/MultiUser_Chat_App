@@ -16,6 +16,9 @@ import javax.swing.border.EmptyBorder;
 
 import com.owner.chatapp.network.Client;
 import com.owner.chatapp.utils.Userinfo;
+import java.awt.Color;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 public class ClientChatScreen extends JFrame {
 
@@ -57,7 +60,24 @@ public class ClientChatScreen extends JFrame {
 	}
 	
 	public ClientChatScreen() throws UnknownHostException, IOException {
+		setResizable(false);
 		textArea_1 = new JTextArea();
+		textArea_1.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				if(textArea_1.getText().equals("Type a new message")) {
+					textArea_1.setText("");
+					textArea_1.setForeground(new Color(0, 0, 0));
+				}
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(textArea_1.getText().equals("")) {
+					textArea_1.setText("Type a new message");
+					textArea_1.setForeground(new Color(128, 128, 128));
+				}
+			}
+		});
 		textArea = new JTextArea();
 		client = new Client(textArea);
 		setTitle(Userinfo.USER_NAME);

@@ -106,6 +106,9 @@ public class UserView{
 		userViewFrame.getContentPane().add(lblPassword);
 		
 		userIdField = new JTextField();
+		userIdField.setToolTipText("Enter your username here..");
+		userIdField.setName("");
+		userIdField.setActionCommand("");
 		userIdField.setHorizontalAlignment(SwingConstants.CENTER);
 		userIdField.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
 		userIdField.setColumns(10);
@@ -146,6 +149,7 @@ public class UserView{
 		userViewFrame.getContentPane().add(userlbl);
 		
 		passwordField = new JPasswordField();
+		passwordField.setToolTipText("Enter your PassKey");
 		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
 		passwordField.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		passwordField.setBounds(147, 171, 227, 26);
