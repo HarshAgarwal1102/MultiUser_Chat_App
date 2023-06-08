@@ -13,9 +13,6 @@ public interface DBConnection {
 		Class.forName(getValue(DRIVER_NAME));
 		// Step-2
 		Connection con = DriverManager.getConnection(getValue(DB_URL), getValue(DB_USERID), getValue(DB_PWD));
-		if(con!=null) {
-			System.out.println("connection created...");
-		}
 		return con;
 	}
 }

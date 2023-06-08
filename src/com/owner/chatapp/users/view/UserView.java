@@ -124,7 +124,7 @@ public class UserView{
 		});
 		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnLogin.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		btnLogin.setBounds(91, 245, 117, 29);
+		btnLogin.setBounds(91, 245, 125, 35);
 		userViewFrame.getContentPane().add(btnLogin);
 		
 		JButton btnRegister = new JButton("Register");
@@ -139,7 +139,7 @@ public class UserView{
 			}
 		});
 		btnRegister.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		btnRegister.setBounds(223, 245, 117, 29);
+		btnRegister.setBounds(232, 245, 125, 35);
 		userViewFrame.getContentPane().add(btnRegister);
 		
 		JLabel userlbl = new JLabel("");

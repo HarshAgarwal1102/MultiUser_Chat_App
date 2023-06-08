@@ -1,24 +1,26 @@
 package com.owner.chatapp.users.view;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 import com.owner.chatapp.network.Client;
+import com.owner.chatapp.users.validation.InputValidation;
 import com.owner.chatapp.utils.Userinfo;
-import java.awt.Color;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
 
 public class ClientChatScreen extends JFrame {
 
@@ -51,33 +53,39 @@ public class ClientChatScreen extends JFrame {
 	 */
 	private void sendit() {
 		String message = textArea_1.getText();
-		try {
-			client.sendMessage(Userinfo.USER_NAME+"- " + message);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(!InputValidation.lengthCheckValidateClientChatScreenText(textArea_1.getText())) {
+			//JOptionPane.showMessageDialog(this, "Invalid Input! Input must have atleast 1 characters.");
+		}
+		else {
+			try {
+				client.sendMessage(Userinfo.USER_NAME+"- " + message);
+			} 
+			catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	public ClientChatScreen() throws UnknownHostException, IOException {
 		setResizable(false);
 		textArea_1 = new JTextArea();
-		textArea_1.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusGained(FocusEvent e) {
-				if(textArea_1.getText().equals("Type a new message")) {
-					textArea_1.setText("");
-					textArea_1.setForeground(new Color(0, 0, 0));
-				}
-			}
-			@Override
-			public void focusLost(FocusEvent e) {
-				if(textArea_1.getText().equals("")) {
-					textArea_1.setText("Type a new message");
-					textArea_1.setForeground(new Color(128, 128, 128));
-				}
-			}
-		});
+//		textArea_1.addFocusListener(new FocusAdapter() {
+//			@Override
+//			public void focusGained(FocusEvent e) {
+//				if(textArea_1.getText().equals("Type a new message")) {
+//					textArea_1.setText("");
+//					textArea_1.setForeground(new Color(0, 0, 0));
+//				}
+//			}
+//			@Override
+//			public void focusLost(FocusEvent e) {
+//				if(textArea_1.getText().equals("")) {
+//					textArea_1.setText("Type a new message");
+//					textArea_1.setForeground(new Color(128, 128, 128));
+//				}
+//			}
+//		});
 		textArea = new JTextArea();
 		client = new Client(textArea);
 		setTitle(Userinfo.USER_NAME);
