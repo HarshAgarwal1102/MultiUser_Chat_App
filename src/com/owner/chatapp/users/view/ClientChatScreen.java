@@ -28,6 +28,7 @@ public class ClientChatScreen extends JFrame {
 	private JTextArea textArea;
 	private JTextArea textArea_1;
 	private Client client;
+	private JScrollPane scrollPane_1;
 
 	/**
 	 * Launch the application.
@@ -65,6 +66,11 @@ public class ClientChatScreen extends JFrame {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	private void focus() {
+		scrollPane_1.setViewportView(textArea_1);
+		EventQueue.invokeLater( () -> textArea_1.requestFocusInWindow() );
 	}
 	
 	public ClientChatScreen() throws UnknownHostException, IOException {
@@ -114,20 +120,20 @@ public class ClientChatScreen extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				sendit();
 				textArea_1.setText("");
+				focus();
 			}
 		});
 		sendBtn.setBounds(560, 308, 117, 29);
 		contentPane.add(sendBtn);
 		
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(30, 303, 518, 39);
 		contentPane.add(scrollPane_1);
 		
 		textArea_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		textArea_1.setBounds(30, 303, 518, 39);
-		scrollPane_1.setViewportView(textArea_1);
-		EventQueue.invokeLater( () -> textArea_1.requestFocusInWindow() );
+		focus();
 		
 		setVisible(true);
 	}
