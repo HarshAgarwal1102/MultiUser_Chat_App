@@ -46,7 +46,6 @@ public class Register extends JFrame {
 		UserDAO userDAO = new UserDAO();
 		UserDTO userDTO = new UserDTO(FullName, userid, password);
 		try {
-			int result = userDAO.add(userDTO);
 			
 			if(!InputValidation.lengthCheckValidateFullName(fullNametxt.getText())) {
 				JOptionPane.showMessageDialog(this, "Invalid Input! Name must have atleast 3 characters.");
@@ -55,23 +54,22 @@ public class Register extends JFrame {
 				JOptionPane.showMessageDialog(this, "Invalid Input! UserId must have atleast 6 characters.");
 			}
 			else {
-	
-			if(result == 0) {
+				int result = userDAO.add(userDTO);
+				if(result == 0) {
 				JOptionPane.showMessageDialog(null, "User already exist...\nTry using another userId");
-			}
-			else if(result > 0) {
-				JOptionPane.showMessageDialog(this, "Registered Successfully");
-				this.setVisible(false);
-				this.dispose();
-				UserView window = new UserView();
-				window.userViewFrame.setVisible(true);
-				
-			}
+				}
+				else if(result > 0) {
+					JOptionPane.showMessageDialog(this, "Registered Successfully");
+					this.setVisible(false);
+					this.dispose();
+					UserView window = new UserView();
+					window.userViewFrame.setVisible(true);
+				}
 			
-			else {
-				JOptionPane.showMessageDialog(this, "Registeration Fail");
-			}
-		} 
+				else {
+					JOptionPane.showMessageDialog(this, "Registeration Fail");
+				}
+			} 
 		}
 			catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
