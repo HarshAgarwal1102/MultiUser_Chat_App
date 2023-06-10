@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
-
+import java.net.Socket;
 import javax.swing.JTextArea;
 
 import com.owner.chatapp.utils.ConfigReader;
@@ -21,7 +21,11 @@ public class Client {
 		
 		int PORT = Integer.parseInt(ConfigReader.getValue("PORTNO"));
 		
-		socket = new Socket(ConfigReader.getValue("SERVER_IP"), PORT);
+		// for fetching IP address
+
+        InetAddress localHost = InetAddress.getLocalHost();
+
+        socket = new Socket(localHost, PORT);
 		
 		out = socket.getOutputStream();
 		
