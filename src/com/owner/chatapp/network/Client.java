@@ -3,9 +3,10 @@ package com.owner.chatapp.network;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.net.Socket;
+
 import javax.swing.JTextArea;
 
 import com.owner.chatapp.utils.ConfigReader;
@@ -20,12 +21,10 @@ public class Client {
 	public Client(JTextArea textArea) throws UnknownHostException, IOException {
 		
 		int PORT = Integer.parseInt(ConfigReader.getValue("PORTNO"));
-		
 		// for fetching IP address
-
-        InetAddress localHost = InetAddress.getLocalHost();
-
-        socket = new Socket(localHost, PORT);
+		InetAddress localHost = InetAddress.getLocalHost();
+		socket = new Socket(localHost, PORT);
+	
 		
 		out = socket.getOutputStream();
 		
