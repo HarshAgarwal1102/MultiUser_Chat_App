@@ -1,21 +1,18 @@
 package com.owner.chatapp.users.view;
 
-import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
 import java.io.IOException;
 import java.net.UnknownHostException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
 
 import com.owner.chatapp.network.Client;
@@ -106,6 +103,7 @@ public class ClientChatScreen extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(20, 6, 658, 280);
+		
 		contentPane.add(scrollPane);
 		
 		
@@ -113,6 +111,7 @@ public class ClientChatScreen extends JFrame {
 		textArea.setBounds(20, 20, 645, 250);
 		scrollPane.setViewportView(textArea);
 		textArea.setEditable(false);
+		textArea.setLineWrap(true);
 		
 		
 		JButton sendBtn = new JButton("Send Message");
