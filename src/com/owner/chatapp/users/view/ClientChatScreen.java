@@ -6,13 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.UnknownHostException;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
 
 import com.owner.chatapp.network.Client;
@@ -132,6 +130,7 @@ public class ClientChatScreen extends JFrame {
 		
 		textArea_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		textArea_1.setBounds(30, 303, 518, 39);
+		textArea_1.setLineWrap(true);
 		focus();
 		
 		setVisible(true);
