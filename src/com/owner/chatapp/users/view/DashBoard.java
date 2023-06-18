@@ -10,6 +10,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -74,6 +76,20 @@ public class DashBoard extends JFrame {
 			}
 		});
 		chatMenu.add(StartChat);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Exit");
+		menuBar.add(mntmNewMenuItem);
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				JFrame frame1 = new JFrame("Exit");
+				if(JOptionPane.showConfirmDialog(frame1, "Confirm You Want To Exit?", "Chat App", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		

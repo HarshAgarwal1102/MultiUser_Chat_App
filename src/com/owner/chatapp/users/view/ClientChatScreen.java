@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -105,6 +106,19 @@ public class ClientChatScreen extends JFrame {
 		
 		JMenuItem chaneNameMenu = new JMenuItem("Home Page");
 		nameMenu.add(chaneNameMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("Exit");
+		menuBar.add(mntmNewMenuItem);
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				JFrame frame1 = new JFrame("Exit");
+				if(JOptionPane.showConfirmDialog(frame1, "Confirm You Want To Exit?", "Chat App", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
 		chaneNameMenu.addActionListener(new ActionListener() {
 			
 			@Override

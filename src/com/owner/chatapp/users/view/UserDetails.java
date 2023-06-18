@@ -2,7 +2,6 @@ package com.owner.chatapp.users.view;
 
 import java.awt.Color;
 import java.awt.Cursor;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -170,7 +169,7 @@ public class UserDetails extends JFrame{
 		JLabel lblPassword = new JLabel("Password :");
 		lblPassword.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPassword.setFont(new Font("PT Sans", Font.BOLD, 16));
-		lblPassword.setBounds(27, 198, 92, 22);
+		lblPassword.setBounds(27, 192, 92, 22);
 		contentPane.add(lblPassword);
 		
 		passwordField = new JPasswordField();
@@ -178,10 +177,10 @@ public class UserDetails extends JFrame{
 		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
 		passwordField.setBorder(new LineBorder(new Color(0, 0, 0)));
 		passwordField.setBackground(new Color(255, 255, 255));
-		passwordField.setBounds(139, 195, 232, 26);
+		passwordField.setBounds(139, 189, 232, 26);
 		contentPane.add(passwordField);
 		
-		JButton btnNewButton = new JButton("Update Details");
+		JButton btnNewButton = new JButton("Save Details");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				updateDetails();
@@ -193,13 +192,13 @@ public class UserDetails extends JFrame{
 		});
 		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnNewButton.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		btnNewButton.setBounds(219, 260, 129, 37);
+		btnNewButton.setBounds(219, 265, 129, 37);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_2.setIcon(new ImageIcon(Register.class.getResource("/assets/register.png")));
-		lblNewLabel_2.setBounds(409, 6, 335, 315);
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setIcon(new ImageIcon(UserDetails.class.getResource("/assets/update3.png")));
+		lblNewLabel_2.setBounds(383, 6, 361, 315);
 		contentPane.add(lblNewLabel_2);
 		
 		JButton btnNewButton_1 = new JButton("Back to Home");
@@ -213,10 +212,10 @@ public class UserDetails extends JFrame{
 				dashboard.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(75, 260, 129, 37);
+		btnNewButton_1.setBounds(75, 265, 129, 37);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Save Name..");
+		JButton btnNewButton_2 = new JButton("Update Name");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				updateName();
@@ -225,14 +224,18 @@ public class UserDetails extends JFrame{
 		btnNewButton_2.setBounds(254, 59, 117, 29);
 		contentPane.add(btnNewButton_2);
 		
-		JButton btnNewButton_2_1 = new JButton("Save UserId..");
+		JButton btnNewButton_2_1 = new JButton("Update UserId");
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				updateId();
 			}
 		});
-		btnNewButton_2_1.setBounds(254, 137, 117, 29);
+		btnNewButton_2_1.setBounds(254, 138, 117, 29);
 		contentPane.add(btnNewButton_2_1);
+		
+		JButton btnNewButton_2_1_1 = new JButton("Update Pass..");
+		btnNewButton_2_1_1.setBounds(254, 215, 117, 29);
+		contentPane.add(btnNewButton_2_1_1);
 		
 		frame.setVisible(true);
 	}
