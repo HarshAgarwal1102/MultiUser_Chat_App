@@ -6,8 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.UnknownHostException;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -69,7 +73,6 @@ public class ClientChatScreen extends JFrame {
 	}
 	
 	public ClientChatScreen() throws UnknownHostException, IOException {
-		setResizable(false);
 		textArea_1 = new JTextArea();
 //		textArea_1.addFocusListener(new FocusAdapter() {
 //			@Override
@@ -92,7 +95,27 @@ public class ClientChatScreen extends JFrame {
 		setTitle(Userinfo.USER_NAME);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		setBounds(100, 100, 700, 390);
+		setBounds(100, 100, 700, 417);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu nameMenu = new JMenu("Go to");
+		menuBar.add(nameMenu);
+		
+		JMenuItem chaneNameMenu = new JMenuItem("Home Page");
+		nameMenu.add(chaneNameMenu);
+		chaneNameMenu.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+				dispose();
+				DashBoard dashBoard =  new DashBoard(Userinfo.USER_ID);
+				dashBoard.setVisible(true);
+			}
+		});
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
