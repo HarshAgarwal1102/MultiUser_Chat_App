@@ -15,6 +15,11 @@ package com.owner.chatapp.users.dto;
 			this.userid = userid;
 			this.password = password;
 		}
+		public UserDTO(String FullName ,String userid) {
+			super();
+			this.FullName = FullName;
+			this.userid = userid;
+		}
 		public UserDTO(String userid, char[] password) {
 			super();
 			

@@ -1,0 +1,239 @@
+package com.owner.chatapp.users.view;
+
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+
+import com.owner.chatapp.users.dao.UserDAO;
+import com.owner.chatapp.users.dto.UserDTO;
+import com.owner.chatapp.users.validation.InputValidation;
+import com.owner.chatapp.utils.Userinfo;
+
+public class UserDetails extends JFrame{
+
+	private JFrame frame;
+	private JPanel contentPane;
+	private JTextField fullNametxt;
+	private JTextField userIdtxt;
+	private JPasswordField passwordField;
+
+	/**
+	 * Launch the application.
+	 */
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					UserDetails window = new UserDetails();
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+
+	/**
+	 * Create the application.
+	 */
+	public UserDetails() {
+		initialize();
+	}
+	public void updateName() {
+		UserDAO userDAO = new UserDAO();
+		UserDTO userDTO = new UserDTO(fullNametxt.getText(), userIdtxt.getText());
+		try {
+			if(!InputValidation.lengthCheckValidateFullName(fullNametxt.getText())) {
+				JOptionPane.showMessageDialog(this, "Invalid Input! Name must have atleast 3 characters.");
+			}
+			else if(!InputValidation.lengthCheckValidateUserId(userIdtxt.getText())) {
+				JOptionPane.showMessageDialog(this, "Invalid Input! UserId must have atleast 6 characters.");
+			}
+			else {
+				int result = userDAO.updateName(userDTO);
+				if(result > 0) {
+					JOptionPane.showMessageDialog(this, "Name Updated Successfully");
+				}
+				else {
+					JOptionPane.showMessageDialog(this, "Updation Fail");
+				}
+			}
+			
+		}
+		catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("DB issue...");
+			e.printStackTrace();
+		}
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Some Generic exception raised...");
+			e.printStackTrace(); // where is the exception
+		}
+	}
+	
+	public void updateId() {
+		UserDAO userDAO = new UserDAO();
+		UserDTO userDTO = new UserDTO(fullNametxt.getText(), userIdtxt.getText());
+		try {
+			if(!InputValidation.lengthCheckValidateFullName(fullNametxt.getText())) {
+				JOptionPane.showMessageDialog(this, "Invalid Input! Name must have atleast 3 characters.");
+			}
+			else if(!InputValidation.lengthCheckValidateUserId(userIdtxt.getText())) {
+				JOptionPane.showMessageDialog(this, "Invalid Input! UserId must have atleast 6 characters.");
+			}
+			else {
+				int result = userDAO.updateUserid(userDTO);
+				if(result > 0) {
+					JOptionPane.showMessageDialog(this, "UserId Updated Successfully");
+				}
+				else {
+					JOptionPane.showMessageDialog(this, "Updation Fail");
+				}
+			}
+			
+		}
+		catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("DB issue...");
+			e.printStackTrace();
+		}
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Some Generic exception raised...");
+			e.printStackTrace(); // where is the exception
+		}
+	}
+	public void updateDetails() {
+		JOptionPane.showMessageDialog(this, "Details Updated Successfully \nReloading Login Page...");
+	}
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setResizable(false);
+		frame.setTitle("User Details");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBounds(100, 100, 750, 360);
+		contentPane = new JPanel();
+		contentPane.setBackground(new Color(240, 248, 255));
+
+		frame.setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Full Name :");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNewLabel.setFont(new Font("PT Sans", Font.BOLD, 16));
+		lblNewLabel.setBounds(27, 36, 92, 22);
+		contentPane.add(lblNewLabel);
+		
+		fullNametxt = new JTextField();
+		fullNametxt.setText(Userinfo.USER_NAME);
+		fullNametxt.setHorizontalAlignment(SwingConstants.CENTER);
+		fullNametxt.setBorder(new LineBorder(new Color(0, 0, 0)));
+		fullNametxt.setBackground(new Color(255, 255, 255));
+		fullNametxt.setBounds(139, 33, 232, 26);
+		contentPane.add(fullNametxt);
+		fullNametxt.setColumns(10);
+		
+		JLabel lblUserid = new JLabel("UserId :");
+		lblUserid.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblUserid.setFont(new Font("PT Sans", Font.BOLD, 16));
+		lblUserid.setBounds(27, 115, 92, 22);
+		contentPane.add(lblUserid);
+		
+		userIdtxt = new JTextField();
+		userIdtxt.setText(Userinfo.USER_ID);
+		userIdtxt.setHorizontalAlignment(SwingConstants.CENTER);
+		userIdtxt.setColumns(10);
+		userIdtxt.setBorder(new LineBorder(new Color(0, 0, 0)));
+		userIdtxt.setBackground(new Color(255, 255, 255));
+		userIdtxt.setBounds(139, 112, 232, 26);
+	
+		contentPane.add(userIdtxt);
+		
+		JLabel lblPassword = new JLabel("Password :");
+		lblPassword.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPassword.setFont(new Font("PT Sans", Font.BOLD, 16));
+		lblPassword.setBounds(27, 198, 92, 22);
+		contentPane.add(lblPassword);
+		
+		passwordField = new JPasswordField();
+		passwordField.setText("●●●●●●●");
+		passwordField.setHorizontalAlignment(SwingConstants.CENTER);
+		passwordField.setBorder(new LineBorder(new Color(0, 0, 0)));
+		passwordField.setBackground(new Color(255, 255, 255));
+		passwordField.setBounds(139, 195, 232, 26);
+		contentPane.add(passwordField);
+		
+		JButton btnNewButton = new JButton("Update Details");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				updateDetails();
+				frame.setVisible(false);
+				frame.dispose();
+				UserView window = new UserView();
+				window.userViewFrame.setVisible(true);
+			}
+		});
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNewButton.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+		btnNewButton.setBounds(219, 260, 129, 37);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.LEFT);
+		lblNewLabel_2.setIcon(new ImageIcon(Register.class.getResource("/assets/register.png")));
+		lblNewLabel_2.setBounds(409, 6, 335, 315);
+		contentPane.add(lblNewLabel_2);
+		
+		JButton btnNewButton_1 = new JButton("Back to Home");
+		btnNewButton_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNewButton_1.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				frame.dispose();
+				DashBoard dashboard = new DashBoard(Userinfo.USER_ID);
+				dashboard.setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(75, 260, 129, 37);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Save Name..");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				updateName();
+			}
+		});
+		btnNewButton_2.setBounds(254, 59, 117, 29);
+		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_2_1 = new JButton("Save UserId..");
+		btnNewButton_2_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				updateId();
+			}
+		});
+		btnNewButton_2_1.setBounds(254, 137, 117, 29);
+		contentPane.add(btnNewButton_2_1);
+		
+		frame.setVisible(true);
+	}
+}

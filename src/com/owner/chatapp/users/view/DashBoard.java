@@ -1,12 +1,11 @@
 package com.owner.chatapp.users.view;
 
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -39,6 +38,21 @@ public class DashBoard extends JFrame {
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
+		
+		JMenu userMenu = new JMenu("Account");
+		menuBar.add(userMenu);
+		
+		JMenuItem detailsMenuItem = new JMenuItem("User Details");
+		userMenu.add(detailsMenuItem);
+		detailsMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+				dispose();
+				new UserDetails();
+			}
+		});
 		
 		JMenu chatMenu = new JMenu("Chat");
 		menuBar.add(chatMenu);

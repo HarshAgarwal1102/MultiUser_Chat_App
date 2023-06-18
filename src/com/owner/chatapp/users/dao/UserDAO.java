@@ -83,4 +83,68 @@ public class UserDAO {
 		}
 		
 	}
+	
+	// Updating name of a user
+	public int updateName(UserDTO userDTO) throws ClassNotFoundException, SQLException, Exception {
+		Connection connection = null;
+		Statement statement = null; //query
+		
+		try { 
+				// Step-1 Connection create.
+				connection = DBConnection.getConnection();
+				// Step-2 we do a query.
+				statement = connection.createStatement();
+				// update users set FullName = 'Harshit Agarwal' where userid = 'harsh@123';
+				int record = statement.executeUpdate("update users set FullName ='"+userDTO.getFullName()+"' where userid = '"+userDTO.getUserid()+"'");
+				//record = statement.executeUpdate("update users set userid = '"+userDTO.getUserid()+"' where FullName ='"+userDTO.getFullName()+"'");
+				return record;
+		}
+		
+		finally { // always execute
+			if(statement != null) {
+				statement.close();
+			}
+			if(connection != null) {
+				connection.close();
+			}
+		}
+	}
+	
+	// Updating userid of a user
+		public int updateUserid(UserDTO userDTO) throws ClassNotFoundException, SQLException, Exception {
+			Connection connection = null;
+			Statement statement = null; //query
+			Connection conn = null;
+			
+			try { 
+				conn = DBConnection.getConnection();
+				String queryCheck = "SELECT * from users WHERE userid = '"+userDTO.getUserid()+"'";
+				Statement st = conn.createStatement();
+				ResultSet rs = st.executeQuery(queryCheck); // execute the query, and get a java resultset
+
+				// if this useriD already exists, we quit
+				if(rs.next()) {
+				    conn.close();
+				    return 0;
+				}
+					// Step-1 Connection create.
+					connection = DBConnection.getConnection();
+					// Step-2 we do a query.
+					statement = connection.createStatement();
+					// update users set userid = 'harsh@123' where FullName = 'Harsh Agarwal';
+					int record = statement.executeUpdate("update users set userid = '"+userDTO.getUserid()+"' where FullName ='"+userDTO.getFullName()+"'");
+					return record;
+			}
+			
+			finally { // always execute
+				if(statement != null) {
+					statement.close();
+				}
+				if(connection != null) {
+					connection.close();
+				}
+			}
+			
+		}
+	
 }

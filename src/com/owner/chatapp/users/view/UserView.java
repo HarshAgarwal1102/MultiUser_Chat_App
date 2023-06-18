@@ -61,6 +61,7 @@ public class UserView{
 //				String msg = "Welcome "+FullName;
 				JOptionPane.showMessageDialog(userViewFrame, "Welcome "+FullName);
 				Userinfo.USER_NAME = FullName;
+				Userinfo.USER_ID = userid;
 				userViewFrame.setVisible(false);
 				userViewFrame.dispose();
 				DashBoard dashBoard = new DashBoard(userid);
