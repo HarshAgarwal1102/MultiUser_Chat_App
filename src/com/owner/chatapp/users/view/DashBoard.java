@@ -41,10 +41,10 @@ public class DashBoard extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu userMenu = new JMenu("Account");
+		JMenu userMenu = new JMenu("Profile");
 		menuBar.add(userMenu);
 		
-		JMenuItem detailsMenuItem = new JMenuItem("User Details");
+		JMenuItem detailsMenuItem = new JMenuItem("Your Details");
 		userMenu.add(detailsMenuItem);
 		detailsMenuItem.addActionListener(new ActionListener() {
 			@Override
@@ -53,6 +53,18 @@ public class DashBoard extends JFrame {
 				setVisible(false);
 				dispose();
 				new UserDetails();
+			}
+		});
+		JMenuItem logOutMenuItem = new JMenuItem("Log Out");
+		userMenu.add(logOutMenuItem);
+		logOutMenuItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				setVisible(false);
+				dispose();
+				UserView window = new UserView();
+				window.userViewFrame.setVisible(true);
 			}
 		});
 		
@@ -77,9 +89,11 @@ public class DashBoard extends JFrame {
 		});
 		chatMenu.add(StartChat);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Exit");
-		menuBar.add(mntmNewMenuItem);
-		mntmNewMenuItem.addActionListener(new ActionListener() {
+		JMenu exitMenu = new JMenu("App");
+		menuBar.add(exitMenu);
+		
+		JMenuItem exitApp = new JMenuItem("Exit App");
+		exitApp.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
@@ -89,6 +103,7 @@ public class DashBoard extends JFrame {
 				}
 			}
 		});
+		exitMenu.add(exitApp);
 		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

@@ -59,16 +59,13 @@ public class UserDetails extends JFrame{
 			if(!InputValidation.lengthCheckValidateFullName(fullNametxt.getText())) {
 				JOptionPane.showMessageDialog(this, "Invalid Input! Name must have atleast 3 characters.");
 			}
-			else if(!InputValidation.lengthCheckValidateUserId(userIdtxt.getText())) {
-				JOptionPane.showMessageDialog(this, "Invalid Input! UserId must have atleast 6 characters.");
-			}
 			else {
 				int result = userDAO.updateName(userDTO);
 				if(result > 0) {
 					JOptionPane.showMessageDialog(this, "Name Updated Successfully");
 				}
 				else {
-					JOptionPane.showMessageDialog(this, "Updation Fail");
+					JOptionPane.showMessageDialog(this, "Name Updation Fail");
 				}
 			}
 			
@@ -89,10 +86,7 @@ public class UserDetails extends JFrame{
 		UserDAO userDAO = new UserDAO();
 		UserDTO userDTO = new UserDTO(fullNametxt.getText(), userIdtxt.getText());
 		try {
-			if(!InputValidation.lengthCheckValidateFullName(fullNametxt.getText())) {
-				JOptionPane.showMessageDialog(this, "Invalid Input! Name must have atleast 3 characters.");
-			}
-			else if(!InputValidation.lengthCheckValidateUserId(userIdtxt.getText())) {
+			if(!InputValidation.lengthCheckValidateUserId(userIdtxt.getText())) {
 				JOptionPane.showMessageDialog(this, "Invalid Input! UserId must have atleast 6 characters.");
 			}
 			else {
@@ -101,7 +95,7 @@ public class UserDetails extends JFrame{
 					JOptionPane.showMessageDialog(this, "UserId Updated Successfully");
 				}
 				else {
-					JOptionPane.showMessageDialog(this, "Updation Fail");
+					JOptionPane.showMessageDialog(this, "UserId Updation Fail");
 				}
 			}
 			

@@ -101,35 +101,22 @@ public class ClientChatScreen extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu nameMenu = new JMenu("Go to");
-		menuBar.add(nameMenu);
+		JMenu exitMenu = new JMenu("Chat");
+		menuBar.add(exitMenu);
+		JMenuItem exitChatMenu = new JMenuItem("Exit Chat");
+		exitMenu.add(exitChatMenu);
 		
-		JMenuItem chaneNameMenu = new JMenuItem("Home Page");
-		nameMenu.add(chaneNameMenu);
-		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Exit");
-		menuBar.add(mntmNewMenuItem);
-		mntmNewMenuItem.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				JFrame frame1 = new JFrame("Exit");
-				if(JOptionPane.showConfirmDialog(frame1, "Confirm You Want To Exit?", "Chat App", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
-					System.exit(0);
-				}
-			}
-		});
-		chaneNameMenu.addActionListener(new ActionListener() {
-			
+		exitChatMenu.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				setVisible(false);
 				dispose();
-				DashBoard dashBoard =  new DashBoard(Userinfo.USER_ID);
-				dashBoard.setVisible(true);
+				DashBoard dashboard = new DashBoard(Userinfo.USER_ID);
+				dashboard.setVisible(true);
 			}
 		});
+	
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
