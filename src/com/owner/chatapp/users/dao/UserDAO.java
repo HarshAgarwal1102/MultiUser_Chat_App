@@ -6,9 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.swing.JOptionPane;
-
 import com.owner.chatapp.users.dto.UserDTO;
 import com.owner.chatapp.utils.DBConnection;
 import com.owner.chatapp.utils.Encryption;
@@ -89,34 +86,34 @@ public class UserDAO {
 	
 	// Updating name of a user
 	public int updateName(UserDTO userDTO) throws ClassNotFoundException, SQLException, Exception {
+		
 		Connection connection = null;
 		Statement statement = null; //query
-//		Connection conn = null;
-//		Statement st = null;
-//		
+		Connection conn = null;
+			
 		try { 
-//			//update users set FullName = 'Harsh Agarwal' where userid = 'harsh@123' and FullName != 'Harsh Agarwal';
 //			conn = DBConnection.getConnection();
-//			st = conn.createStatement();
-//			int record = st.executeUpdate("update users set FullName = '"+userDTO.getFullName()+"' where userid = '"+userDTO.getUserid()+"' and FullName != '"+Userinfo.USER_NAME+"'");
-//			
+//			String queryCheck = "SELECT * from users WHERE userid = '"+Userinfo.USER_ID+"' and FullName = '"+Userinfo.USER_NAME+"'";
+//			Statement st = conn.createStatement();
+//			ResultSet rs = st.executeQuery(queryCheck); // execute the query, and get a java resultset
 //
-//			// if this Name is same, we quit
-//			if( record > 0) {
-//				return 0;
+//			// if this useriD already exists, we quit
+//			if(rs.next()) {
+//				 conn.close();
+//				 return 0;
 //			}
 //			else {
 				// Step-1 Connection create.
+				
 				connection = DBConnection.getConnection();
 				// Step-2 we do a query.
 				statement = connection.createStatement();
-				// update users set FullName = 'Harshit Agarwal' where userid = 'harsh@123';
+				// update users set userid = 'harsh@123' where FullName = 'Harsh Agarwal';
 				int record = statement.executeUpdate("update users set FullName ='"+userDTO.getFullName()+"' where userid = '"+userDTO.getUserid()+"'");
-				//record = statement.executeUpdate("update users set userid = '"+userDTO.getUserid()+"' where FullName ='"+userDTO.getFullName()+"'");
 				return record;
 			
 		}
-		
+			
 		finally { // always execute
 			if(statement != null) {
 				statement.close();
@@ -150,7 +147,7 @@ public class UserDAO {
 				// Step-2 we do a query.
 				statement = connection.createStatement();
 				// update users set userid = 'harsh@123' where FullName = 'Harsh Agarwal';
-				int record = statement.executeUpdate("update users set userid = '"+userDTO.getUserid()+"' where FullName ='"+userDTO.getFullName()+"'");
+				int record = statement.executeUpdate("update users set userid = '"+userDTO.getUserid()+"' where FullName ='"+Userinfo.USER_NAME+"'");
 				return record;
 			}
 		}
