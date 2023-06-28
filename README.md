@@ -2,9 +2,6 @@
 
 <img width="764" alt="chatapp" src="https://github.com/king4404/MultiUser_Chat_App/assets/117922914/dd4d374e-6866-4b02-b56e-06872950c8eb">
 
-Read More: https://medium.com/@harshagarwal2225/about-chat-application-646c9a19ff6b
-
-
 # Create the User Registration and Login Functionality:
 - Design the registration and login screens using Swing and AWT components with the help of Window Builder.<br>
 - Implement the logic to capture user registration details and store them in the MySQL database.<br>
