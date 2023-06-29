@@ -9,22 +9,30 @@
 
 # User Registration:
 - Users can register by providing their desired username, full name, password, and other necessary details.<br>
-- The registration information is validated, and if valid, it is stored in the MySQL database for future logins.<br>
+- The registration information is validated, and if valid, it is stored in the MySQL database for future logins.<br><br>
+<img width="750" alt="Screenshot 2023-06-29 at 2 29 56 PM" src="https://github.com/king4404/king4404/assets/117922914/6755d5bb-1ace-4caa-8611-945d344f3cee"> <br><br>
+
 
 # User Login:
 - Registered users can log in to the chat application using their username and password.<br>
 - The login credentials are verified against the information stored in the MySQL database.<br>
-- If the credentials are correct, the user is granted access to the chat interface.<br>
+- If the credentials are correct, the user is granted access to the chat interface.<br><br>
+<img width="750" alt="Screenshot 2023-06-29 at 2 29 28 PM" src="https://github.com/king4404/king4404/assets/117922914/c79ac975-5630-471f-8e51-6038c5297823"> <br><br>
+
 
 # Develop the Dashboard Screen:
 - Design the dashboard screen using Swing and AWT components.<br>
 - Provide options for users to log in, register, and access the chat functionality.<br>
-- Link the login and registration functionality to the appropriate database operations.<br>
+- Link the login and registration functionality to the appropriate database operations.<br><br>
+<img width="801" alt="Screenshot 2023-06-29 at 2 30 48 PM" src="https://github.com/king4404/king4404/assets/117922914/3ceb03fd-42e0-4ae5-b72e-15975c2cad31"> <br><br>
+
 
 # Chat Interface:
 - The chat interface is also designed using Swing and AWT components created with the help of Window Builder.<br>
 - It includes features like a text input field, and a chat message display area.<br>
-- Users can enter text messages in the input field and send them to the chat room.<br>
+- Users can enter text messages in the input field and send them to the chat room.<br><br>
+<img width="700" alt="Screenshot 2023-06-29 at 2 32 46 PM" src="https://github.com/king4404/king4404/assets/117922914/8bcd7f21-2c25-4b70-bc39-362a0dcfe5ed"> <br><br>
+
 
 # Set up the MySQL Database:
 - Install and configure the MySQL database server.<br>
@@ -44,11 +52,15 @@
 - Provide functionality for users to update their profile and account details.<br>
 - Allow users to modify their username, password, or any other relevant information.<br>
 - Implement appropriate validation and authentication checks before updating the user details in the MySQL database.<br>
-- Update the user interface to reflect the changes in real time after the user updates their details.<br>
+- Update the user interface to reflect the changes in real time after the user updates their details.<br><br>
+<img width="749" alt="Screenshot 2023-06-26 at 7 31 57 PM" src="https://github.com/king4404/king4404/assets/117922914/3bad90d8-db0a-462d-b4d9-c9fc8b64fe21"> <br><br>
+
 
 # Messaging:
 - When a user sends a message, it is displayed in the chat message display area and broadcast to all online users.<br>
-- Received messages are retrieved from the MySQL database and displayed in the chat message area for each user.<br>
+- Received messages are retrieved from the MySQL database and displayed in the chat message area for each user.<br><br>
+<img width="1400" alt="Screenshot 2023-06-29 at 2 38 00 PM" src="https://github.com/king4404/king4404/assets/117922914/5be2220f-a45c-46be-b6ae-0843287ac386"> <br><br>
+
 
 # Implement the Socket Programming and Server Socket:
 - Create a server socket that listens for incoming client connections.<br>
